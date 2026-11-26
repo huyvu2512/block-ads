@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>DNSSettings</key>
+			<dict>
+				<key>DNSProtocol</key>
+				<string>HTTPS</string>
+				<key>ServerURL</key>
+				<string>https://7a64n0vzr5.cloudflare-gateway.com/dns-query</string>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>Huyvu2512 Block Ads - DNS over HTTPS (Cloudflare Gateway) chặn quảng cáo, tracker và bảo mật cho iOS</string>
+			<key>PayloadDisplayName</key>
+			<string>Huyvu2512 Block Ads</string>
+			<key>PayloadIdentifier</key>
+			<string>com.cloudflare.gateway.huyvu2512.dns</string>
+			<key>PayloadType</key>
+			<string>com.apple.dnsSettings.managed</string>
+			<key>PayloadUUID</key>
+			<string>a7e1c2b0-4d3e-4f8a-9b1c-7a64e0f2a501</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Huyvu2512 Block Ads - Cấu hình DNS mã hóa (DoH) qua Cloudflare Gateway giúp chặn quảng cáo, tracker và vượt chặn DNS nhà mạng trên iOS.</string>
+	<key>PayloadDisplayName</key>
+	<string>Huyvu2512 Block Ads</string>
+	<key>PayloadIdentifier</key>
+	<string>com.cloudflare.gateway.huyvu2512</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>b8f2d3c1-5e4f-4a9b-8c2d-7a64e0f2a502</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
