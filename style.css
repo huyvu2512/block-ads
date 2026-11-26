@@ -21,6 +21,12 @@
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -117,6 +123,13 @@ body {
   align-items: center;
 }
 
+.hero-copy,
+.inspector,
+.bento-cell,
+.step-item {
+  min-width: 0;
+}
+
 .status-line {
   display: inline-flex;
   align-items: center;
@@ -210,8 +223,10 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
+  width: 100%;
   max-width: 100%;
   margin-bottom: 16px;
+  overflow: hidden;
 }
 
 .endpoint-tag {
@@ -228,8 +243,11 @@ body {
 .endpoint-bar code {
   font-size: 0.8rem;
   color: var(--text);
+  min-width: 0;
+  flex: 1;
   overflow-x: auto;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .meta-strip {
@@ -251,9 +269,10 @@ body {
 
 .inspector-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px 12px;
   padding: 14px 16px;
   border-bottom: 1px solid var(--border);
   background: var(--subtle);
@@ -262,6 +281,7 @@ body {
 .inspector-title {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .inspector-title .mono {
@@ -659,11 +679,20 @@ body {
 }
 
 @media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
   .nav {
     display: none;
   }
   .hero {
-    padding: 40px 0;
+    padding: 36px 0 32px;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .actions .btn {
+    width: 100%;
   }
   .bento {
     grid-template-columns: 1fr;
@@ -671,10 +700,29 @@ body {
   .bento-wide {
     grid-column: span 1;
   }
+  .bento-cell,
+  .seg-panel {
+    padding: 20px 16px;
+  }
+  .segmented {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .seg-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .query-row {
-    grid-template-columns: 68px 1fr 38px;
+    grid-template-columns: 64px 1fr 36px;
+    padding: 10px 14px;
   }
   .q-rule {
     display: none;
+  }
+  .section {
+    padding: 44px 0 0;
+  }
+  .footer {
+    margin-top: 52px;
   }
 }
