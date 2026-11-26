@@ -7,7 +7,7 @@ function showToast(msg) {
   clearTimeout(window.__toastTimer);
   window.__toastTimer = setTimeout(() => {
     toast.classList.remove('show');
-  }, 2200);
+  }, 2000);
 }
 
 if (copyBtn) {
@@ -15,23 +15,43 @@ if (copyBtn) {
     const doh = copyBtn.getAttribute('data-doh');
     try {
       await navigator.clipboard.writeText(doh);
-      showToast('Đã copy link DoH!');
+      showToast('Đã copy link DoH vào clipboard');
     } catch {
-      showToast('Không thể copy tự động, hãy bôi đen link bên dưới.');
+      showToast('Không thể copy tự động');
     }
   });
 }
 
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
+// Setup tabs
+const segBtns = document.querySelectorAll('.seg-btn');
+const segPanels = document.querySelectorAll('.seg-panel');
 
-tabBtns.forEach((btn) => {
+segBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.getAttribute('data-tab');
-    tabBtns.forEach((b) => b.classList.remove('active'));
-    tabPanels.forEach((p) => p.classList.remove('active'));
+    segBtns.forEach((b) => b.classList.remove('active'));
+    segPanels.forEach((p) => p.classList.remove('active'));
     btn.classList.add('active');
     const panel = document.getElementById(`tab-${target}`);
     if (panel) panel.classList.add('active');
+  });
+});
+
+// Live DNS Inspector filter
+const filterChips = document.querySelectorAll('.filter-chip');
+const queryRows = document.querySelectorAll('.query-row');
+
+filterChips.forEach((chip) => {
+  chip.addEventListener('click', () => {
+    const mode = chip.getAttribute('data-filter');
+    filterChips.forEach((c) => c.classList.remove('active'));
+    chip.classList.add('active');
+    queryRows.forEach((row) => {
+      if (mode === 'all' || row.getAttribute('data-status') === mode) {
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
   });
 });

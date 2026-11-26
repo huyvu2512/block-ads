@@ -3,225 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huyvu2512 Block Ads — DNS Chặn Quảng Cáo & Bảo Mật cho iOS</title>
-  <meta name="description" content="DNS mã hóa (DoH) miễn phí chạy trên Cloudflare Zero Trust Gateway. Chặn quảng cáo, tracker, mã độc và vượt chặn DNS nhà mạng cho iOS chỉ trong 10 giây." />
-  <meta property="og:title" content="Huyvu2512 Block Ads — DNS Chặn Quảng Cáo cho iOS" />
-  <meta property="og:description" content="Cài đặt trong 10 giây, không cần app, không tốn pin, không cài Root CA." />
+  <title>Huyvu2512 Block Ads — Encrypted DNS for iOS</title>
+  <meta name="description" content="DNS mã hóa (DoH) chạy trên Cloudflare Zero Trust Gateway. Chặn quảng cáo, tracker, mã độc cho iOS — không cần app, không cài Root CA." />
+  <meta property="og:title" content="Huyvu2512 Block Ads — Encrypted DNS for iOS" />
+  <meta property="og:description" content="Cài đặt trực tiếp qua hồ sơ iOS trong 10 giây. Không tốn pin, không cài Root CA." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blockads.huyvu2512.io.vn" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-glow"></div>
-
-  <header class="navbar">
-    <div class="container nav-inner">
+  <header class="header">
+    <div class="container header-inner">
       <a href="#" class="brand">
-        <span class="brand-icon" aria-hidden="true">🛡️</span>
-        <span>Huyvu2512 <strong>Block Ads</strong></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span>huyvu2512<span class="brand-muted">/block-ads</span></span>
       </a>
-      <nav class="nav-links">
-        <a href="#features">Tính năng</a>
-        <a href="#setup">Hướng dẫn</a>
+      <nav class="nav">
+        <a href="#architecture">Kiến trúc</a>
+        <a href="#setup">Cài đặt</a>
         <a href="#faq">Hỏi đáp</a>
-        <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener" class="nav-ext">
+          GitHub
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="badge">
-        <span class="dot"></span>
-        Cloudflare Zero Trust Gateway · DoH Encrypted
-      </div>
-      <h1>Chặn quảng cáo toàn hệ thống iOS <span class="gradient-text">không cần cài App</span></h1>
-      <p class="hero-sub">
-        DNS mã hóa (DNS over HTTPS) tốc độ cao với máy chủ tại Việt Nam. Chặn quảng cáo, tracker, mã độc và vượt chặn DNS nhà mạng trên cả Wi-Fi lẫn 4G/5G — <strong>an toàn tuyệt đối, không cài Root CA</strong>.
-      </p>
+    <!-- Split Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="status-line">
+            <span class="pulse"></span>
+            <span class="mono">CLOUDFLARE GATEWAY · DOH READY</span>
+          </div>
+          <h1>DNS chặn quảng cáo cho iOS, gọn nhẹ và minh bạch.</h1>
+          <p class="lead">
+            Định tuyến truy vấn DNS qua giao thức mã hóa <strong>DNS-over-HTTPS</strong> với node tại Việt Nam. Chặn quảng cáo, tracker và vượt chặn DNS nhà mạng mà không cần cài ứng dụng hay chứng chỉ Root CA.
+          </p>
 
-      <div class="cta-group">
-        <a href="/download" class="btn btn-primary" download="huyvu2512.mobileconfig">
-          <span>⬇️</span> Tải hồ sơ iOS (.mobileconfig)
-        </a>
-        <button type="button" class="btn btn-secondary" id="copyDohBtn" data-doh="https://7a64n0vzr5.cloudflare-gateway.com/dns-query">
-          <span>📋</span> Copy Link DoH
-        </button>
-      </div>
+          <div class="actions">
+            <a href="/download" class="btn btn-primary" download="huyvu2512.mobileconfig">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Tải hồ sơ iOS (.mobileconfig)
+            </a>
+            <button type="button" class="btn btn-outline" id="copyDohBtn" data-doh="https://7a64n0vzr5.cloudflare-gateway.com/dns-query">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy DoH URL
+            </button>
+          </div>
 
-      <div class="doh-box">
-        <span class="doh-label">DoH Endpoint:</span>
-        <code id="dohUrl">https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code>
-      </div>
+          <div class="endpoint-bar">
+            <span class="mono endpoint-tag">HTTPS</span>
+            <code class="mono">https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code>
+          </div>
 
-      <div class="trust-pills">
-        <span>✅ Không tốn pin</span>
-        <span>✅ Không cài Root CA</span>
-        <span>✅ Tự động cập nhật bộ lọc</span>
-        <span>✅ Hỗ trợ Wi-Fi & 4G/5G</span>
+          <div class="meta-strip">
+            <span>2.970+ domain lọc chọn</span>
+            <span>·</span>
+            <span>Không Root CA</span>
+            <span>·</span>
+            <span>Wi-Fi &amp; 4G/5G</span>
+          </div>
+        </div>
+
+        <!-- Live DNS Inspector Card -->
+        <div class="inspector" aria-label="Mô phỏng nhật ký lọc DNS">
+          <div class="inspector-head">
+            <div class="inspector-title">
+              <span class="mono">DNS QUERY INSPECTOR</span>
+              <span class="inspector-sub">huyvu2512.cloudflare-gateway.com</span>
+            </div>
+            <div class="inspector-filter">
+              <button class="filter-chip active" data-filter="all">Tất cả</button>
+              <button class="filter-chip" data-filter="blocked">Đã chặn</button>
+            </div>
+          </div>
+
+          <div class="query-list" id="queryList">
+            <div class="query-row" data-status="blocked">
+              <span class="q-status q-block">BLOCKED</span>
+              <span class="q-domain mono">doubleclick.net</span>
+              <span class="q-rule">Adblock-Global</span>
+              <span class="q-lat mono">4ms</span>
+            </div>
+            <div class="query-row" data-status="blocked">
+              <span class="q-status q-block">BLOCKED</span>
+              <span class="q-domain mono">ads.tiktok.com</span>
+              <span class="q-rule">Block Ad Regex</span>
+              <span class="q-lat mono">3ms</span>
+            </div>
+            <div class="query-row" data-status="allowed">
+              <span class="q-status q-allow">ALLOWED</span>
+              <span class="q-domain mono">vnexpress.net</span>
+              <span class="q-rule">Default</span>
+              <span class="q-lat mono">6ms</span>
+            </div>
+            <div class="query-row" data-status="blocked">
+              <span class="q-status q-block">BLOCKED</span>
+              <span class="q-domain mono">adservice.google.com</span>
+              <span class="q-rule">Custom-Adblock</span>
+              <span class="q-lat mono">4ms</span>
+            </div>
+            <div class="query-row" data-status="blocked">
+              <span class="q-status q-block">BLOCKED</span>
+              <span class="q-domain mono">tracking.viettel.vn</span>
+              <span class="q-rule">Adblock-VN</span>
+              <span class="q-lat mono">5ms</span>
+            </div>
+            <div class="query-row" data-status="allowed">
+              <span class="q-status q-allow">ALLOWED</span>
+              <span class="q-domain mono">icloud.com</span>
+              <span class="q-rule">Default</span>
+              <span class="q-lat mono">5ms</span>
+            </div>
+          </div>
+
+          <div class="inspector-foot">
+            <span>Chính sách hoạt động: <strong>6 rules</strong></span>
+            <span class="mono">No MITM · No Root CA</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Stats / Sources -->
-    <section class="container stats-grid">
-      <div class="stat-card">
-        <div class="stat-num">2.970+</div>
-        <div class="stat-label">Tên miền quảng cáo & tracker chọn lọc (ABPVN + StevenBlack)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">14+</div>
-        <div class="stat-label">Nhóm bảo mật Cloudflare (Malware, Phishing, Botnet...)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">0%</div>
-        <div class="stat-label">Tiêu hao pin nền — hoạt động ở tầng DNS gốc của iOS</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">0 CA</div>
-        <div class="stat-label">Không cài chứng chỉ Root CA, không đọc dữ liệu HTTPS</div>
-      </div>
-    </section>
+    <!-- Bento Grid Architecture -->
+    <section id="architecture" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono section-kicker">01 / KIẾN TRÚC LỌC</span>
+          <h2>Thiết kế cho tốc độ và sự an toàn</h2>
+        </div>
 
-    <!-- Features -->
-    <section id="features" class="container section">
-      <div class="section-head">
-        <h2>Vì sao nên dùng Huyvu2512 Block Ads?</h2>
-        <p>Tối ưu riêng cho người dùng iPhone/iPad tại Việt Nam trên hạ tầng Cloudflare.</p>
-      </div>
+        <div class="bento">
+          <div class="bento-cell bento-wide">
+            <span class="mono cell-num">01 / FILTER STACK</span>
+            <h3>Đa tầng lọc Việt Nam &amp; Quốc tế</h3>
+            <p>Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), bộ lọc tiếng Việt <strong>ABPVN</strong>, danh sách <strong>StevenBlack</strong> và biểu thức Regex tự động quét tên miền con quảng cáo.</p>
+            <div class="rule-tags">
+              <span>Allow Whitelist (#1)</span>
+              <span>Security &amp; Ads</span>
+              <span>Ad Regex</span>
+              <span>ABPVN (990)</span>
+              <span>StevenBlack (1.980)</span>
+            </div>
+          </div>
 
-      <div class="features-grid">
-        <article class="card">
-          <div class="card-icon">🇻🇳</div>
-          <h3>Bộ lọc Việt Nam & Quốc tế</h3>
-          <p>Kết hợp danh sách chặn quảng cáo <strong>ABPVN</strong> chuyên trị báo mạng/app Việt Nam cùng <strong>StevenBlack</strong> và bộ lọc Ads mặc định của Cloudflare.</p>
-        </article>
+          <div class="bento-cell">
+            <span class="mono cell-num">02 / PRIVACY</span>
+            <h3>Không cài Root CA</h3>
+            <p>Hồ sơ chỉ sử dụng payload <code>com.apple.dnsSettings.managed</code>. Toàn bộ dữ liệu ngân hàng, mật khẩu và HTTPS của bạn không bị giải mã trung gian.</p>
+          </div>
 
-        <article class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Tốc độ siêu nhanh tại VN</h3>
-          <p>Sử dụng mạng Anycast của Cloudflare có node đặt tại Hà Nội & TP.HCM, độ trễ cực thấp và vượt qua các giới hạn DNS của nhà mạng.</p>
-        </article>
+          <div class="bento-cell">
+            <span class="mono cell-num">03 / LATENCY</span>
+            <h3>Node tại Việt Nam</h3>
+            <p>Hạ tầng Anycast của Cloudflare định tuyến truy vấn qua Hà Nội và TP.HCM, giữ độ trễ thấp và vượt chặn DNS nhà mạng trên cả 4G/5G.</p>
+          </div>
 
-        <article class="card">
-          <div class="card-icon">🔒</div>
-          <h3>Riêng tư & An toàn 100%</h3>
-          <p>File <code>.mobileconfig</code> chỉ chứa cấu hình <code>dnsSettings.managed</code>. Tuyệt đối <strong>không cài Root CA</strong> nên không ai có thể giải mã lưu lượng HTTPS của bạn.</p>
-        </article>
+          <div class="bento-cell">
+            <span class="mono cell-num">04 / BATTERY</span>
+            <h3>0% hao pin nền</h3>
+            <p>Chạy trực tiếp trên tầng DNS gốc của iOS thay vì tạo VPN ảo chạy ngầm, không xung đột với app khác.</p>
+          </div>
 
-        <article class="card">
-          <div class="card-icon">🔄</div>
-          <h3>Cập nhật ngầm tự động</h3>
-          <p>Mọi danh sách chặn mới và quy tắc miễn trừ (Whitelist) được cập nhật trực tiếp trên đám mây Cloudflare — không bao giờ phải tải lại hồ sơ.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🎯</div>
-          <h3>Chặn thông minh bằng Regex</h3>
-          <p>Tự động quét và chặn các tên miền con chuyên phát quảng cáo, theo dõi hành vi (<code>ads.</code>, <code>analytics.</code>, <code>tracking.</code>, <code>telemetry.</code>...).</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🛡️</div>
-          <h3>Chống lừa đảo & mã độc</h3>
-          <p>Tự động chặn các tên miền giả mạo (Phishing), mã độc (Malware) và đào coin (Cryptomining) trước khi trình duyệt kịp tải.</p>
-        </article>
+          <div class="bento-cell">
+            <span class="mono cell-num">05 / CLOUD SYNC</span>
+            <h3>Cập nhật tức thì</h3>
+            <p>Mọi thay đổi danh sách chặn hoặc miễn trừ (Whitelist) được áp dụng trên Cloudflare mà không cần tải lại file cấu hình.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Setup -->
-    <section id="setup" class="container section">
-      <div class="section-head">
-        <h2>Hướng dẫn cài đặt trong 10 giây</h2>
-        <p>Chọn thiết bị của bạn để xem hướng dẫn chi tiết.</p>
-      </div>
+    <section id="setup" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono section-kicker">02 / HƯỚNG DẪN CÀI ĐẶT</span>
+          <h2>Hoàn tất trong 3 bước</h2>
+        </div>
 
-      <div class="tabs" role="tablist">
-        <button class="tab-btn active" data-tab="ios" role="tab">iPhone / iPad (iOS)</button>
-        <button class="tab-btn" data-tab="apps" role="tab">Shadowrocket / Trình duyệt</button>
-        <button class="tab-btn" data-tab="test" role="tab">Kiểm tra hoạt động</button>
-      </div>
+        <div class="setup-box">
+          <div class="segmented" role="tablist">
+            <button class="seg-btn active" data-tab="ios" role="tab">iPhone / iPad</button>
+            <button class="seg-btn" data-tab="apps" role="tab">Shadowrocket / Trình duyệt</button>
+            <button class="seg-btn" data-tab="verify" role="tab">Kiểm tra</button>
+          </div>
 
-      <div class="tab-panel active" id="tab-ios">
-        <ol class="steps">
-          <li>
-            <strong>Tải hồ sơ cấu hình:</strong> Mở trang này bằng <strong>Safari</strong> trên iPhone/iPad và bấm nút <strong>Tải hồ sơ iOS (.mobileconfig)</strong> ở trên, sau đó chọn <strong>Cho phép (Allow)</strong>.
-          </li>
-          <li>
-            <strong>Mở Cài đặt:</strong> Vào ứng dụng <strong>Cài đặt (Settings)</strong> -> bấm ngay vào dòng <strong>Đã tải về hồ sơ (Profile Downloaded)</strong> ở phía trên cùng.
-          </li>
-          <li>
-            <strong>Xác nhận cài đặt:</strong> Bấm <strong>Cài đặt (Install)</strong> -> nhập mật khẩu máy -> bấm <strong>Xong</strong>. Hồ sơ <em>Huyvu2512 Block Ads</em> sẽ tự động kích hoạt cho cả Wi-Fi và 4G/5G.
-          </li>
-        </ol>
-      </div>
+          <div class="seg-panel active" id="tab-ios">
+            <div class="step-grid">
+              <div class="step-item">
+                <span class="mono step-idx">STEP 01</span>
+                <h4>Tải hồ sơ bằng Safari</h4>
+                <p>Mở <code>blockads.huyvu2512.io.vn/download</code> trên Safari, chọn <strong>Cho phép (Allow)</strong> khi hộp thoại tải hồ sơ xuất hiện.</p>
+              </div>
+              <div class="step-item">
+                <span class="mono step-idx">STEP 02</span>
+                <h4>Mở Cài đặt hệ thống</h4>
+                <p>Vào <strong>Cài đặt (Settings)</strong>, bấm vào mục <strong>Đã tải về hồ sơ (Profile Downloaded)</strong> ngay phía trên cùng.</p>
+              </div>
+              <div class="step-item">
+                <span class="mono step-idx">STEP 03</span>
+                <h4>Kích hoạt Huyvu2512 Block Ads</h4>
+                <p>Bấm <strong>Cài đặt (Install)</strong> và nhập mật khẩu máy. DNS sẽ tự chạy cho cả Wi-Fi lẫn dữ liệu di động.</p>
+              </div>
+            </div>
+          </div>
 
-      <div class="tab-panel" id="tab-apps">
-        <ol class="steps">
-          <li>
-            <strong>Shadowrocket / Quantumult X / Clash:</strong> Dán trực tiếp link DoH <code>https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code> vào phần cài đặt DNS của ứng dụng.
-          </li>
-          <li>
-            <strong>Chrome / Edge / Firefox (Desktop & Android):</strong> Vào <em>Cài đặt > Quyền riêng tư & Bảo mật > Sử dụng DNS bảo mật (Secure DNS)</em> -> chọn <strong>Tùy chỉnh (Custom)</strong> và dán link DoH ở trên vào.
-          </li>
-        </ol>
-      </div>
+          <div class="seg-panel" id="tab-apps">
+            <div class="step-grid step-grid-2">
+              <div class="step-item">
+                <span class="mono step-idx">SHADOWROCKET / CLASH</span>
+                <h4>Dán trực tiếp DoH URL</h4>
+                <p>Mở phần cài đặt DNS trong ứng dụng và dán <code>https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code> để đồng bộ bộ lọc khi bật VPN.</p>
+              </div>
+              <div class="step-item">
+                <span class="mono step-idx">CHROME / EDGE / ANDROID</span>
+                <h4>Sử dụng Secure DNS</h4>
+                <p>Vào <em>Cài đặt &gt; Quyền riêng tư &amp; Bảo mật &gt; DNS bảo mật</em>, chọn <strong>Tùy chỉnh</strong> và nhập link DoH ở trên.</p>
+              </div>
+            </div>
+          </div>
 
-      <div class="tab-panel" id="tab-test">
-        <div class="test-box">
-          <p>Sau khi cài đặt xong, bạn có thể kiểm tra ngay tỷ lệ chặn quảng cáo & tracker của DNS bằng công cụ kiểm thử độc lập:</p>
-          <a href="https://d3ward.github.io/toolz/adblock.html" target="_blank" rel="noopener" class="btn btn-secondary">
-            🚀 Mở trang Test AdBlock (d3ward)
-          </a>
+          <div class="seg-panel" id="tab-verify">
+            <div class="verify-row">
+              <div>
+                <h4>Kiểm tra tỷ lệ chặn thực tế</h4>
+                <p>Mở công cụ kiểm thử độc lập trên Safari sau khi cài hồ sơ để xem số lượng domain quảng cáo &amp; tracker bị chặn.</p>
+              </div>
+              <a href="https://d3ward.github.io/toolz/adblock.html" target="_blank" rel="noopener" class="btn btn-outline">
+                Mở d3ward AdBlock Test
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="container section">
-      <div class="section-head">
-        <h2>Câu hỏi thường gặp</h2>
-      </div>
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono section-kicker">03 / CÂU HỎI THƯỜNG GẶP</span>
+          <h2>Thông tin kỹ thuật &amp; giới hạn</h2>
+        </div>
 
-      <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>Khi cập nhật thêm tên miền chặn mới có cần tải lại file .mobileconfig không?</summary>
-          <p><strong>Không.</strong> File <code>.mobileconfig</code> chỉ trỏ iPhone tới server DNS Cloudflare Gateway của hệ thống. Mọi danh sách chặn mới đều được cập nhật tức thì trên máy chủ.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>DNS có chặn được quảng cáo trong app YouTube hay Facebook không?</summary>
-          <p>DNS chặn tốt banner/popup trong Safari, trình duyệt và đa số game/app dùng mạng quảng cáo bên thứ 3 (Google Ads, Unity Ads, AppLovin...). Riêng quảng cáo phát từ cùng tên miền với video (như YouTube App, Facebook Reels) thì DNS thuần không tách ra được.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Gặp Wi-Fi quán cafe không hiện trang đăng nhập thì xử lý sao?</summary>
-          <p>Vào <strong>Cài đặt > Cài đặt chung > VPN & Quản lý thiết bị > DNS</strong>, chuyển tạm sang <strong>Tự động (Automatic)</strong> để hiện trang đăng nhập Wi-Fi, xong rồi chọn lại <strong>Huyvu2512 Block Ads</strong> là dùng bình thường.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Cài file này có sợ lộ thông tin ngân hàng hay mật khẩu không?</summary>
-          <p><strong>Hoàn toàn không.</strong> Hồ sơ chỉ điều hướng truy vấn tên miền (DNS) và không cài chứng chỉ Root CA. Toàn bộ kết nối HTTPS của bạn vẫn được mã hóa đầu cuối trực tiếp giữa iPhone và ngân hàng/ứng dụng.</p>
-        </details>
+        <div class="faq-grid">
+          <details class="faq" open>
+            <summary>Cập nhật danh sách chặn mới có phải cài lại file không?</summary>
+            <p>Không. Hồ sơ chỉ trỏ thiết bị tới endpoint Cloudflare Gateway. Mọi rule chặn hoặc whitelist mới đều có hiệu lực ngay trên máy chủ.</p>
+          </details>
+          <details class="faq">
+            <summary>Có chặn được quảng cáo trong app YouTube hoặc Facebook không?</summary>
+            <p>DNS chặn hiệu quả quảng cáo trên trình duyệt Safari, báo mạng và đa số game/app dùng mạng quảng cáo bên thứ ba. Quảng cáo phát chung tên miền với nội dung video (YouTube App, Reels) không thể tách ở tầng DNS.</p>
+          </details>
+          <details class="faq">
+            <summary>Xử lý thế nào nếu Wi-Fi công cộng không hiện trang đăng nhập?</summary>
+            <p>Vào <strong>Cài đặt &gt; Cài đặt chung &gt; VPN &amp; Quản lý thiết bị &gt; DNS</strong>, chuyển tạm sang <strong>Tự động</strong> để đăng nhập Wi-Fi, sau đó bật lại <strong>Huyvu2512 Block Ads</strong>.</p>
+          </details>
+          <details class="faq">
+            <summary>File cấu hình này có an toàn với app ngân hàng không?</summary>
+            <p>Hoàn toàn an toàn. Hồ sơ không cài chứng chỉ Root CA, không thực hiện MITM nên mọi kết nối HTTPS vẫn được mã hóa trực tiếp giữa iPhone và ngân hàng.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <span>© 2026 <strong>Huyvu2512 Block Ads</strong> · Powered by Cloudflare Gateway</span>
+      <span class="mono">HUYVU2512 BLOCK ADS · CLOUDFLARE GATEWAY</span>
       <div class="footer-links">
-        <a href="/download" download="huyvu2512.mobileconfig">Tải .mobileconfig</a>
-        <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener">GitHub Repo</a>
+        <a href="/download" download="huyvu2512.mobileconfig">/download</a>
+        <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">Đã copy link DoH!</div>
-
+  <div class="toast" id="toast" role="status" aria-live="polite">Đã copy link DoH</div>
   <script src="script.js"></script>
 </body>
 </html>
