@@ -3,7 +3,7 @@
 DNS mã hóa (DoH - DNS over HTTPS) chạy trên nền tảng **Cloudflare Zero Trust Gateway**, giúp chặn quảng cáo, tracker, mã độc và vượt chặn DNS nhà mạng cho iOS / Android / Desktop.
 
 - **Website:** https://blockads.huyvu2512.io.vn
-- **Tải cấu hình iOS (`.mobileconfig`):** `/huyvu2512.mobileconfig`
+- **Tải cấu hình iOS (`.mobileconfig`):** `https://blockads.huyvu2512.io.vn/download`
 - **DoH Endpoint:** `https://7a64n0vzr5.cloudflare-gateway.com/dns-query`
 
 ## Điểm nổi bật

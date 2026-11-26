@@ -1,5 +1,28 @@
 {
+  "rewrites": [
+    {
+      "source": "/download",
+      "destination": "/huyvu2512.mobileconfig"
+    }
+  ],
   "headers": [
+    {
+      "source": "/download",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/x-apple-aspen-config"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"huyvu2512.mobileconfig\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
     {
       "source": "/(.*)\\.mobileconfig",
       "headers": [
