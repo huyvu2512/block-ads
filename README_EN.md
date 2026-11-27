@@ -25,7 +25,7 @@
 ---
 
 <div align="center">
-  <img src="assets/logo.png" alt="Huyvu2512 Block Ads Logo" width="120">
+  <img src="assets/preview.png" alt="Huyvu2512 Block Ads Interface" width="100%">
 </div>
 
 ---

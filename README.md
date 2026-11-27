@@ -25,7 +25,7 @@
 ---
 
 <div align="center">
-  <img src="assets/logo.png" alt="Huyvu2512 Block Ads Logo" width="120">
+  <img src="assets/preview.png" alt="Giao diện Huyvu2512 Block Ads" width="100%">
 </div>
 
 ---
@@ -64,7 +64,8 @@ Dự án được xây dựng bởi Huy Vũ ([@huyvu2512](https://huyvu2512.io.v
 block-ads/
 ├── assets/
 │   ├── logo.png                  # Logo chính (favicon, og:image)
-│   └── logo-transparent.png      # Logo nền trong suốt (tự đảo màu Sáng/Tối)
+│   ├── logo-transparent.png      # Logo nền trong suốt (tự đảo màu Sáng/Tối)
+│   └── preview.png               # Ảnh giao diện trang web
 ├── profiles/
 │   └── huyvu2512.mobileconfig    # Hồ sơ DNS DoH cho iOS/macOS
 ├── src/
