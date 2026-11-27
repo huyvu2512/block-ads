@@ -6,11 +6,23 @@ DNS mã hóa (DoH - DNS over HTTPS) chạy trên nền tảng **Cloudflare Zero 
 - **Tải cấu hình iOS (`.mobileconfig`):** `https://blockads.huyvu2512.io.vn/download`
 - **DoH Endpoint:** `https://7a64n0vzr5.cloudflare-gateway.com/dns-query`
 
+## Cấu trúc thư mục
+```text
+block-ads/
+├── assets/
+│   └── logo.png                  # Logo, favicon & OpenGraph image
+├── profiles/
+│   └── huyvu2512.mobileconfig    # Hồ sơ DNS DoH cho iOS/macOS
+├── src/
+│   ├── style.css                 # Giao diện Swiss-grid (Light/Dark)
+│   └── script.js                 # Theme toggle, i18n (VI/EN), DNS Inspector
+├── index.html                    # Trang chủ
+├── vercel.json                   # Rewrite /download & MIME header .mobileconfig
+└── README.md
+```
+
 ## Điểm nổi bật
 - Không cần cài app, không chạy ngầm, không tốn pin.
 - An toàn tuyệt đối: **chỉ cấu hình DNS (`com.apple.dnsSettings.managed`), không cài Root CA**.
-- Tích hợp danh sách lọc **ABPVN** (quảng cáo Việt Nam), **StevenBlack** (quốc tế), **Cloudflare Security & Ads** và Regex chặn tracker.
+- Hỗ trợ chuyển đổi giao diện **Sáng / Tối** và ngôn ngữ **Tiếng Việt / English**.
 - Tự động cập nhật bộ lọc từ máy chủ Cloudflare mà không cần cài lại hồ sơ trên iPhone.
-
-## Triển khai lên Vercel
-Repo này là static site thuần (HTML/CSS/JS) kèm `vercel.json` để cấu hình header `application/x-apple-aspen-config` cho file `.mobileconfig`, giúp Safari trên iOS nhận diện và tải hồ sơ cài đặt ngay lập tức.

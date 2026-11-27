@@ -152,12 +152,22 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: -0.02em;
+}
+
+.brand-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 .brand-muted {
