@@ -1,0 +1,17 @@
+{
+  "name": "Huyvu2512 Block Ads",
+  "short_name": "Block Ads",
+  "description": "DNS mã hóa (DoH) chặn quảng cáo, tracker và vượt chặn DNS nhà mạng đa nền tảng.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

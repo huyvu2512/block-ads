@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /profiles/
+
+Sitemap: https://blockads.huyvu2512.io.vn/sitemap.xml
