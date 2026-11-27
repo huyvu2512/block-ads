@@ -186,9 +186,17 @@ const i18n = {
   }
 };
 
-let currentLang = localStorage.getItem('lang') || 'vi';
+function detectBrowserLang() {
+  const langs = navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || 'vi'];
+  const primary = (langs[0] || '').toLowerCase();
+  return primary.startsWith('vi') ? 'vi' : 'en';
+}
 
-function applyLang(lang) {
+let currentLang = localStorage.getItem('lang') || detectBrowserLang();
+
+function applyLang(lang, persist = false) {
   currentLang = lang === 'en' ? 'en' : 'vi';
   const dict = i18n[currentLang];
   document.documentElement.lang = currentLang;
@@ -204,14 +212,16 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (dict[key]) el.innerHTML = dict[key];
   });
-  localStorage.setItem('lang', currentLang);
+  if (persist) {
+    localStorage.setItem('lang', currentLang);
+  }
 }
 
 applyLang(currentLang);
 
 if (langToggle) {
   langToggle.addEventListener('click', () => {
-    applyLang(currentLang === 'vi' ? 'en' : 'vi');
+    applyLang(currentLang === 'vi' ? 'en' : 'vi', true);
   });
 }
 
