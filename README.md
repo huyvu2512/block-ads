@@ -10,8 +10,8 @@ DNS mã hóa (DoH - DNS over HTTPS) chạy trên nền tảng **Cloudflare Zero 
 ```text
 block-ads/
 ├── assets/
-│   ├── logo-bg.png               # Logo có nền bo góc (favicon, header, og:image)
-│   └── logo-nobg.png             # Logo nền trong suốt
+│   ├── logo.png                  # Logo chính (favicon, header, og:image)
+│   └── logo-transparent.png      # Logo nền trong suốt
 ├── profiles/
 │   └── huyvu2512.mobileconfig    # Hồ sơ DNS DoH cho iOS/macOS
 ├── src/
