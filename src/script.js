@@ -5,11 +5,11 @@ const langToggle = document.getElementById('langToggle');
 
 const i18n = {
   vi: {
-    page_title: 'Huyvu2512 Block Ads — DNS Chặn Quảng Cáo cho iOS',
+    page_title: 'Block Ads',
     nav_arch: 'Kiến trúc',
     nav_setup: 'Cài đặt',
     nav_faq: 'Hỏi đáp',
-    hero_title: 'DNS chặn quảng cáo cho iOS, gọn nhẹ và minh bạch.',
+    hero_title: 'DNS chặn quảng cáo đa nền tảng, gọn nhẹ và minh bạch.',
     hero_lead: 'Định tuyến truy vấn DNS qua giao thức mã hóa <strong>DNS-over-HTTPS</strong> với node tại Việt Nam. Chặn quảng cáo, tracker và vượt chặn DNS nhà mạng mà không cần cài ứng dụng hay chứng chỉ Root CA.',
     btn_download: 'Tải hồ sơ iOS (.mobileconfig)',
     btn_copy: 'Copy DoH URL',
@@ -62,11 +62,11 @@ const i18n = {
     toast_fail: 'Không thể copy tự động'
   },
   en: {
-    page_title: 'Huyvu2512 Block Ads — Encrypted DNS for iOS',
+    page_title: 'Block Ads',
     nav_arch: 'Architecture',
     nav_setup: 'Setup',
     nav_faq: 'FAQ',
-    hero_title: 'Ad-blocking DNS for iOS, lightweight and transparent.',
+    hero_title: 'Ad-blocking DNS for all devices, lightweight and transparent.',
     hero_lead: 'Route DNS queries over encrypted <strong>DNS-over-HTTPS</strong> with low-latency edge nodes in Vietnam. Block ads, trackers, and ISP DNS blocks with zero apps and no Root CA.',
     btn_download: 'Download iOS Profile (.mobileconfig)',
     btn_copy: 'Copy DoH URL',
