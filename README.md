@@ -2,7 +2,7 @@
 
 # Huyvu2512 Block Ads
 
-**DNS mã hóa (DoH) chạy trên Cloudflare Zero Trust Gateway — chặn quảng cáo, tracker & vượt chặn DNS đa nền tảng**
+**DNS mã hóa (DoH) giúp chặn quảng cáo, tracker & vượt chặn DNS đa nền tảng**
 
 [Tiếng Việt](README.md) · [English](README_EN.md)
 

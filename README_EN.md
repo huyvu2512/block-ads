@@ -2,7 +2,7 @@
 
 # Huyvu2512 Block Ads
 
-**Encrypted DNS (DoH) powered by Cloudflare Zero Trust Gateway — cross-platform ad, tracker & ISP DNS block bypass**
+**Encrypted DNS (DoH) for cross-platform ad, tracker & ISP block bypass**
 
 [Tiếng Việt](README.md) · [English](README_EN.md)
 
