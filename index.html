@@ -29,7 +29,7 @@
 <body>
   <header class="header">
     <div class="container header-inner">
-      <a href="#" class="brand">
+      <a href="/" class="brand" id="brandHome">
         <img src="assets/logo-transparent.png" alt="Block Ads" class="brand-logo" width="30" height="30" />
         <span>huyvu2512<span class="brand-muted">/block-ads</span></span>
       </a>
@@ -82,12 +82,12 @@
           </div>
 
           <div class="endpoint-bar">
-            <span class="mono endpoint-tag">HTTPS</span>
-            <code class="mono">https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code>
+            <span class="mono endpoint-tag">LINK</span>
+            <a href="/download" class="mono endpoint-link" download="huyvu2512.mobileconfig">https://blockads.huyvu2512.io.vn/download</a>
           </div>
 
           <div class="meta-strip">
-            <span data-i18n="meta_1">2.970+ domain lọc chọn</span>
+            <span data-i18n="meta_1">Mã hóa DoH</span>
             <span>·</span>
             <span data-i18n="meta_2">Không Root CA</span>
             <span>·</span>
@@ -111,21 +111,15 @@
           <div class="query-list" id="queryList">
             <div class="query-row" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
-              <span class="q-domain mono">doubleclick.net</span>
-              <span class="q-rule">Adblock-Global</span>
-              <span class="q-lat mono">4ms</span>
-            </div>
-            <div class="query-row" data-status="blocked">
-              <span class="q-status q-block">BLOCKED</span>
               <span class="q-domain mono">ads.tiktok.com</span>
               <span class="q-rule">Block Ad Regex</span>
               <span class="q-lat mono">3ms</span>
             </div>
             <div class="query-row" data-status="allowed">
               <span class="q-status q-allow">ALLOWED</span>
-              <span class="q-domain mono">vnexpress.net</span>
+              <span class="q-domain mono">youtube.com</span>
               <span class="q-rule">Default</span>
-              <span class="q-lat mono">6ms</span>
+              <span class="q-lat mono">5ms</span>
             </div>
             <div class="query-row" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
@@ -133,22 +127,28 @@
               <span class="q-rule">Custom-Adblock</span>
               <span class="q-lat mono">4ms</span>
             </div>
+            <div class="query-row" data-status="allowed">
+              <span class="q-status q-allow">ALLOWED</span>
+              <span class="q-domain mono">facebook.com</span>
+              <span class="q-rule">Allow Whitelist</span>
+              <span class="q-lat mono">4ms</span>
+            </div>
             <div class="query-row" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
-              <span class="q-domain mono">tracking.viettel.vn</span>
-              <span class="q-rule">Adblock-VN</span>
-              <span class="q-lat mono">5ms</span>
+              <span class="q-domain mono">doubleclick.net</span>
+              <span class="q-rule">Security &amp; Ads</span>
+              <span class="q-lat mono">4ms</span>
             </div>
             <div class="query-row" data-status="allowed">
               <span class="q-status q-allow">ALLOWED</span>
-              <span class="q-domain mono">icloud.com</span>
+              <span class="q-domain mono">instagram.com</span>
               <span class="q-rule">Default</span>
               <span class="q-lat mono">5ms</span>
             </div>
           </div>
 
           <div class="inspector-foot">
-            <span data-i18n-html="insp_foot">Chính sách hoạt động: <strong>6 rules</strong></span>
+            <span data-i18n-html="insp_foot">Chính sách hoạt động: <strong>5 rules</strong></span>
             <span class="mono">No MITM · No Root CA</span>
           </div>
         </div>
@@ -166,14 +166,13 @@
         <div class="bento">
           <div class="bento-cell bento-wide">
             <span class="mono cell-num">01 / FILTER STACK</span>
-            <h3 data-i18n="bento1_title">Đa tầng lọc Việt Nam &amp; Quốc tế</h3>
-            <p data-i18n-html="bento1_desc">Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), bộ lọc tiếng Việt <strong>ABPVN</strong>, danh sách <strong>StevenBlack</strong> và biểu thức Regex tự động quét tên miền con quảng cáo.</p>
+            <h3 data-i18n="bento1_title">Đa tầng lọc thông minh &amp; gọn sạch</h3>
+            <p data-i18n-html="bento1_desc">Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), danh sách <strong>Custom-Allow</strong> ưu tiên số 1, <strong>Custom-Adblock</strong> chọn lọc từ log thực tế và biểu thức Regex tự động quét tên miền con quảng cáo.</p>
             <div class="rule-tags">
               <span>Allow Whitelist (#1)</span>
               <span>Security &amp; Ads</span>
               <span>Ad Regex</span>
-              <span>ABPVN (990)</span>
-              <span>StevenBlack (1.980)</span>
+              <span>Custom-Adblock</span>
             </div>
           </div>
 
@@ -192,7 +191,7 @@
           <div class="bento-cell">
             <span class="mono cell-num">04 / BATTERY</span>
             <h3 data-i18n="bento4_title">0% hao pin nền</h3>
-            <p data-i18n="bento4_desc">Chạy trực tiếp trên tầng DNS gốc của iOS thay vì tạo VPN ảo chạy ngầm, không xung đột với app khác.</p>
+            <p data-i18n="bento4_desc">Chạy trực tiếp trên tầng DNS gốc của hệ điều hành (iOS, macOS, Windows, trình duyệt) thay vì tạo VPN ảo chạy ngầm, không xung đột với app khác.</p>
           </div>
 
           <div class="bento-cell">
@@ -293,7 +292,7 @@
           </details>
           <details class="faq">
             <summary data-i18n="faq4_q">File cấu hình này có an toàn với app ngân hàng không?</summary>
-            <p data-i18n="faq4_a">Hoàn toàn an toàn. Hồ sơ không cài chứng chỉ Root CA, không thực hiện MITM nên mọi kết nối HTTPS vẫn được mã hóa trực tiếp giữa iPhone và ngân hàng.</p>
+            <p data-i18n="faq4_a">Hoàn toàn an toàn. Hồ sơ không cài chứng chỉ Root CA, không thực hiện MITM nên mọi kết nối HTTPS vẫn được mã hóa trực tiếp giữa thiết bị của bạn và ngân hàng.</p>
           </details>
         </div>
       </div>
@@ -304,7 +303,7 @@
     <div class="container footer-inner">
       <span class="mono">HUYVU2512 BLOCK ADS · CLOUDFLARE GATEWAY</span>
       <div class="footer-links">
-        <a href="/download" download="huyvu2512.mobileconfig">/download</a>
+        <a href="https://huyvu2512.io.vn/" target="_blank" rel="noopener" data-i18n="footer_contact">Liên hệ</a>
         <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>

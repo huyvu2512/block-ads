@@ -2,6 +2,14 @@ const copyBtn = document.getElementById('copyDohBtn');
 const toast = document.getElementById('toast');
 const themeToggle = document.getElementById('themeToggle');
 const langToggle = document.getElementById('langToggle');
+const brandHome = document.getElementById('brandHome');
+
+if (brandHome) {
+  brandHome.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.assign('/');
+  });
+}
 
 const i18n = {
   vi: {
@@ -13,22 +21,22 @@ const i18n = {
     hero_lead: 'Định tuyến truy vấn DNS qua giao thức mã hóa <strong>DNS-over-HTTPS</strong> với node tại Việt Nam. Chặn quảng cáo, tracker và vượt chặn DNS nhà mạng mà không cần cài ứng dụng hay chứng chỉ Root CA.',
     btn_download: 'Tải hồ sơ iOS (.mobileconfig)',
     btn_copy: 'Copy DoH URL',
-    meta_1: '2.970+ domain lọc chọn',
+    meta_1: 'Mã hóa DoH',
     meta_2: 'Không Root CA',
     meta_3: 'Wi-Fi & 4G/5G',
     filter_all: 'Tất cả',
     filter_blocked: 'Đã chặn',
-    insp_foot: 'Chính sách hoạt động: <strong>6 rules</strong>',
+    insp_foot: 'Chính sách hoạt động: <strong>5 rules</strong>',
     arch_kicker: '01 / KIẾN TRÚC LỌC',
     arch_title: 'Thiết kế cho tốc độ và sự an toàn',
-    bento1_title: 'Đa tầng lọc Việt Nam & Quốc tế',
-    bento1_desc: 'Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), bộ lọc tiếng Việt <strong>ABPVN</strong>, danh sách <strong>StevenBlack</strong> và biểu thức Regex tự động quét tên miền con quảng cáo.',
+    bento1_title: 'Đa tầng lọc thông minh & gọn sạch',
+    bento1_desc: 'Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), danh sách <strong>Custom-Allow</strong> ưu tiên số 1, <strong>Custom-Adblock</strong> chọn lọc từ log thực tế và biểu thức Regex tự động quét tên miền con quảng cáo.',
     bento2_title: 'Không cài Root CA',
     bento2_desc: 'Hồ sơ chỉ sử dụng payload <code>com.apple.dnsSettings.managed</code>. Toàn bộ dữ liệu ngân hàng, mật khẩu và HTTPS của bạn không bị giải mã trung gian.',
     bento3_title: 'Node tại Việt Nam',
     bento3_desc: 'Hạ tầng Anycast của Cloudflare định tuyến truy vấn qua Hà Nội và TP.HCM, giữ độ trễ thấp và vượt chặn DNS nhà mạng trên cả 4G/5G.',
     bento4_title: '0% hao pin nền',
-    bento4_desc: 'Chạy trực tiếp trên tầng DNS gốc của iOS thay vì tạo VPN ảo chạy ngầm, không xung đột với app khác.',
+    bento4_desc: 'Chạy trực tiếp trên tầng DNS gốc của hệ điều hành (iOS, macOS, Windows, trình duyệt) thay vì tạo VPN ảo chạy ngầm, không xung đột với app khác.',
     bento5_title: 'Cập nhật tức thì',
     bento5_desc: 'Mọi thay đổi danh sách chặn hoặc miễn trừ (Whitelist) được áp dụng trên Cloudflare mà không cần tải lại file cấu hình.',
     setup_kicker: '02 / HƯỚNG DẪN CÀI ĐẶT',
@@ -57,7 +65,8 @@ const i18n = {
     faq3_q: 'Xử lý thế nào nếu Wi-Fi công cộng không hiện trang đăng nhập?',
     faq3_a: 'Vào <strong>Cài đặt &gt; Cài đặt chung &gt; VPN &amp; Quản lý thiết bị &gt; DNS</strong>, chuyển tạm sang <strong>Tự động</strong> để đăng nhập Wi-Fi, sau đó bật lại <strong>Huyvu2512 Block Ads</strong>.',
     faq4_q: 'File cấu hình này có an toàn với app ngân hàng không?',
-    faq4_a: 'Hoàn toàn an toàn. Hồ sơ không cài chứng chỉ Root CA, không thực hiện MITM nên mọi kết nối HTTPS vẫn được mã hóa trực tiếp giữa iPhone và ngân hàng.',
+    faq4_a: 'Hoàn toàn an toàn. Hồ sơ không cài chứng chỉ Root CA, không thực hiện MITM nên mọi kết nối HTTPS vẫn được mã hóa trực tiếp giữa thiết bị của bạn và ngân hàng.',
+    footer_contact: 'Liên hệ',
     toast_copied: 'Đã copy link DoH vào clipboard',
     toast_fail: 'Không thể copy tự động'
   },
@@ -70,22 +79,22 @@ const i18n = {
     hero_lead: 'Route DNS queries over encrypted <strong>DNS-over-HTTPS</strong> with low-latency edge nodes in Vietnam. Block ads, trackers, and ISP DNS blocks with zero apps and no Root CA.',
     btn_download: 'Download iOS Profile (.mobileconfig)',
     btn_copy: 'Copy DoH URL',
-    meta_1: '2,970+ curated domains',
+    meta_1: 'Encrypted DoH',
     meta_2: 'No Root CA',
     meta_3: 'Wi-Fi & Cellular',
     filter_all: 'All',
     filter_blocked: 'Blocked',
-    insp_foot: 'Active policies: <strong>6 rules</strong>',
+    insp_foot: 'Active policies: <strong>5 rules</strong>',
     arch_kicker: '01 / FILTER ARCHITECTURE',
     arch_title: 'Built for speed and privacy',
-    bento1_title: 'Multi-layer VN & Global Filters',
-    bento1_desc: 'Combines <strong>Cloudflare Security &amp; Ads</strong> (14 threat categories), <strong>ABPVN</strong> (Vietnamese ad networks), <strong>StevenBlack</strong>, and regex rules for ad/telemetry subdomains.',
+    bento1_title: 'Clean, multi-layer filtering',
+    bento1_desc: 'Combines <strong>Cloudflare Security &amp; Ads</strong> (14 threat categories), priority #1 <strong>Custom-Allow</strong> whitelist, real-log-curated <strong>Custom-Adblock</strong>, and regex rules for ad/telemetry subdomains.',
     bento2_title: 'Zero Root CA',
     bento2_desc: 'Uses only the native <code>com.apple.dnsSettings.managed</code> payload. Your banking, passwords, and HTTPS traffic are never intercepted or decrypted.',
     bento3_title: 'Vietnam Edge Nodes',
     bento3_desc: 'Cloudflare Anycast routes queries through Hanoi and Ho Chi Minh City for minimal latency and reliable ISP DNS bypass on Wi-Fi and 4G/5G.',
     bento4_title: '0% Battery Drain',
-    bento4_desc: 'Runs natively at the iOS DNS layer instead of a background local VPN, avoiding battery drain and app conflicts.',
+    bento4_desc: 'Runs natively at the OS/browser DNS layer (iOS, macOS, Windows) instead of a background VPN tunnel, avoiding battery drain and app conflicts.',
     bento5_title: 'Instant Cloud Sync',
     bento5_desc: 'Any blocklist or whitelist updates take effect immediately on Cloudflare without ever reinstalling the iOS profile.',
     setup_kicker: '02 / SETUP GUIDE',
@@ -114,7 +123,8 @@ const i18n = {
     faq3_q: 'What if public Wi-Fi captive portals fail to load?',
     faq3_a: 'Go to <strong>Settings &gt; General &gt; VPN &amp; Device Management &gt; DNS</strong>, temporarily switch to <strong>Automatic</strong> to sign in, then switch back to <strong>Huyvu2512 Block Ads</strong>.',
     faq4_q: 'Is this profile safe for banking apps?',
-    faq4_a: 'Completely safe. It installs no Root CA and performs no MITM, so all HTTPS connections remain end-to-end encrypted between your iPhone and your bank.',
+    faq4_a: 'Completely safe. It installs no Root CA and performs no MITM, so all HTTPS connections remain end-to-end encrypted between your device and your bank.',
+    footer_contact: 'Contact',
     toast_copied: 'Copied DoH URL to clipboard',
     toast_fail: 'Unable to copy automatically'
   }

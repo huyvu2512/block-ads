@@ -51,7 +51,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -333,14 +333,20 @@ body {
   flex-shrink: 0;
 }
 
-.endpoint-bar code {
+.endpoint-bar code,
+.endpoint-link {
   font-size: 0.8rem;
   color: var(--text);
+  text-decoration: none;
   min-width: 0;
   flex: 1;
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+}
+
+.endpoint-link:hover {
+  text-decoration: underline;
 }
 
 .meta-strip {
@@ -410,8 +416,8 @@ body {
 }
 
 .filter-chip.active {
-  background: var(--text);
-  color: #fff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
 }
 
 .query-list {
@@ -737,8 +743,10 @@ body {
   bottom: 24px;
   left: 50%;
   transform: translate(-50%, 12px);
-  background: var(--text);
-  color: #ffffff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   font-size: 0.84rem;
   font-weight: 500;
   padding: 9px 16px;
