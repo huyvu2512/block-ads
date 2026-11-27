@@ -282,10 +282,12 @@ filterChips.forEach((chip) => {
     filterChips.forEach((c) => c.classList.remove('active'));
     chip.classList.add('active');
     queryRows.forEach((row) => {
-      if (mode === 'all' || row.getAttribute('data-status') === mode) {
-        row.classList.remove('hidden');
+      const isExtra = row.hasAttribute('data-extra-blocked');
+      const status = row.getAttribute('data-status');
+      if (mode === 'all') {
+        row.classList.toggle('hidden', isExtra);
       } else {
-        row.classList.add('hidden');
+        row.classList.toggle('hidden', status !== 'blocked');
       }
     });
   });
