@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <script>
     (function () {
       var saved = localStorage.getItem('theme');
@@ -36,7 +36,9 @@
 
       <div class="header-right">
         <nav class="nav">
+          <a href="#pipeline" data-i18n="nav_how">Cơ chế</a>
           <a href="#architecture" data-i18n="nav_arch">Kiến trúc</a>
+          <a href="#compare" data-i18n="nav_compare">So sánh</a>
           <a href="#setup" data-i18n="nav_setup">Cài đặt</a>
           <a href="#faq" data-i18n="nav_faq">Hỏi đáp</a>
           <a href="https://github.com/huyvu2512/block-ads" target="_blank" rel="noopener" class="nav-ext">
@@ -86,12 +88,11 @@
             <a href="/download" class="mono endpoint-link" download="huyvu2512.mobileconfig">https://blockads.huyvu2512.io.vn/download</a>
           </div>
 
-          <div class="meta-strip">
-            <span data-i18n="meta_1">Mã hóa DoH</span>
-            <span>·</span>
-            <span data-i18n="meta_2">Không Root CA</span>
-            <span>·</span>
-            <span data-i18n="meta_3">Wi-Fi &amp; 4G/5G</span>
+          <div class="feature-chips">
+            <span class="chip" data-i18n="meta_1">Mã hóa DoH</span>
+            <span class="chip" data-i18n="meta_2">Không Root CA</span>
+            <span class="chip" data-i18n="meta_3">Wi-Fi &amp; 4G/5G</span>
+            <span class="chip" data-i18n="meta_4">Miễn phí 100%</span>
           </div>
         </div>
 
@@ -99,8 +100,11 @@
         <div class="inspector" aria-label="DNS Query Inspector">
           <div class="inspector-head">
             <div class="inspector-title">
-              <span class="mono">DNS QUERY INSPECTOR</span>
-              <span class="inspector-sub">huyvu2512.cloudflare-gateway.com</span>
+              <div class="inspector-title-row">
+                <span class="mono">RECENT QUERIES</span>
+                <span class="live-pill mono"><span class="live-dot"></span>Live</span>
+              </div>
+              <span class="inspector-sub mono">huyvu2512.cloudflare-gateway.com</span>
             </div>
             <div class="inspector-filter">
               <button class="filter-chip active" data-filter="all" data-i18n="filter_all">Tất cả</button>
@@ -109,39 +113,45 @@
           </div>
 
           <div class="query-list" id="queryList">
-            <div class="query-row" data-status="blocked">
+            <div class="query-row is-blocked" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
               <span class="q-domain mono">ads.tiktok.com</span>
+              <span class="q-type mono">HTTPS</span>
               <span class="q-rule">Block Ad Regex</span>
               <span class="q-lat mono">3ms</span>
             </div>
             <div class="query-row" data-status="allowed">
               <span class="q-status q-allow">ALLOWED</span>
               <span class="q-domain mono">youtube.com</span>
+              <span class="q-type mono">HTTPS</span>
               <span class="q-rule">Default</span>
               <span class="q-lat mono">5ms</span>
             </div>
-            <div class="query-row" data-status="blocked">
+            <div class="query-row is-blocked" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
               <span class="q-domain mono">adservice.google.com</span>
+              <span class="q-type mono">A</span>
               <span class="q-rule">Custom-Adblock</span>
               <span class="q-lat mono">4ms</span>
             </div>
             <div class="query-row" data-status="allowed">
               <span class="q-status q-allow">ALLOWED</span>
               <span class="q-domain mono">facebook.com</span>
+              <span class="q-type mono">AAAA</span>
               <span class="q-rule">Allow Whitelist</span>
               <span class="q-lat mono">4ms</span>
             </div>
-            <div class="query-row" data-status="blocked">
+            <div class="query-row is-blocked" data-status="blocked">
               <span class="q-status q-block">BLOCKED</span>
               <span class="q-domain mono">doubleclick.net</span>
+              <span class="q-type mono">A</span>
               <span class="q-rule">Security &amp; Ads</span>
               <span class="q-lat mono">4ms</span>
             </div>
             <div class="query-row" data-status="allowed">
               <span class="q-status q-allow">ALLOWED</span>
               <span class="q-domain mono">instagram.com</span>
+              <span class="q-type mono">HTTPS</span>
               <span class="q-rule">Default</span>
               <span class="q-lat mono">5ms</span>
             </div>
@@ -155,11 +165,47 @@
       </div>
     </section>
 
-    <!-- Bento Grid Architecture -->
+    <!-- Pipeline Diagram -->
+    <section id="pipeline" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono section-kicker" data-i18n="pipe_kicker">01 / CƠ CHẾ HOẠT ĐỘNG</span>
+          <h2 data-i18n="pipe_title">Chặn trước khi kết nối được tạo</h2>
+        </div>
+
+        <div class="pipeline-grid">
+          <div class="pipe-step">
+            <span class="mono pipe-tag">01 · DEVICE</span>
+            <h3 data-i18n="pipe1_title">Thiết bị của bạn</h3>
+            <p data-i18n="pipe1_desc">iPhone, Mac, Windows hoặc trình duyệt chuẩn bị tải trang web hay quảng cáo trong app.</p>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step">
+            <span class="mono pipe-tag">02 · DOH QUERY</span>
+            <h3 data-i18n="pipe2_title">Truy vấn mã hóa</h3>
+            <p data-i18n="pipe2_desc">Tên miền được gửi qua HTTPS (DoH), ẩn hoàn toàn khỏi nhà mạng để tránh bị chặn DNS.</p>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step">
+            <span class="mono pipe-tag">03 · GATEWAY</span>
+            <h3 data-i18n="pipe3_title">Cloudflare 5 Rules</h3>
+            <p data-i18n="pipe3_desc">Kiểm tra tuần tự từ Allow Whitelist (#1) qua các lớp Security, Ads, Regex &amp; Custom List.</p>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step">
+            <span class="mono pipe-tag">04 · VERDICT</span>
+            <h3 data-i18n="pipe4_title">Cho phép hoặc Chặn</h3>
+            <p data-i18n="pipe4_desc">Domain sạch được phân giải trong ~4ms; domain quảng cáo bị chặn ngay tại tầng DNS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Architecture + Interactive Rule Explorer -->
     <section id="architecture" class="section">
       <div class="container">
         <div class="section-header">
-          <span class="mono section-kicker" data-i18n="arch_kicker">01 / KIẾN TRÚC LỌC</span>
+          <span class="mono section-kicker" data-i18n="arch_kicker">02 / KIẾN TRÚC LỌC</span>
           <h2 data-i18n="arch_title">Thiết kế cho tốc độ và sự an toàn</h2>
         </div>
 
@@ -169,10 +215,11 @@
             <h3 data-i18n="bento1_title">Đa tầng lọc thông minh &amp; gọn sạch</h3>
             <p data-i18n-html="bento1_desc">Kết hợp <strong>Cloudflare Security &amp; Ads</strong> (14 nhóm mã độc, lừa đảo), danh sách <strong>Custom-Allow</strong> ưu tiên số 1, <strong>Custom-Adblock</strong> chọn lọc từ log thực tế và biểu thức Regex tự động quét tên miền con quảng cáo.</p>
             <div class="rule-tags">
-              <span>Allow Whitelist (#1)</span>
-              <span>Security &amp; Ads</span>
-              <span>Ad Regex</span>
-              <span>Custom-Adblock</span>
+              <span>#1 Allow Whitelist</span>
+              <span>#2 Security &amp; Ads</span>
+              <span>#3 Block Ad Regex</span>
+              <span>#4 Custom-Adblock</span>
+              <span>#5 Block Locket</span>
             </div>
           </div>
 
@@ -200,6 +247,90 @@
             <p data-i18n="bento5_desc">Mọi thay đổi danh sách chặn hoặc miễn trừ (Whitelist) được áp dụng trên Cloudflare mà không cần tải lại file cấu hình.</p>
           </div>
         </div>
+
+        <!-- Interactive Troubleshoot / Rule Demo Card -->
+        <div class="trouble-card">
+          <div class="trouble-left">
+            <span class="mono cell-num" data-i18n="tr_kicker">XỬ LÝ CHẶN NHẦM</span>
+            <h3 data-i18n="tr_title">Phát hiện app lỗi, mở chặn trong 1 nốt nhạc</h3>
+            <p data-i18n="tr_desc">Nếu một app hoặc tính năng (như Đăng nhập Facebook) bị chặn nhầm bởi bộ lọc chung, chỉ cần đưa tên miền đó vào Custom-Allow (#1) để ưu tiên cho phép ngay lập tức mà không cần tắt các rule khác.</p>
+          </div>
+          <div class="trouble-demo">
+            <div class="trouble-head">
+              <span class="mono">graph.facebook.com</span>
+              <span class="q-status q-allow" id="trStatus">ALLOWED</span>
+            </div>
+            <div class="trouble-kpis">
+              <div class="kpi">
+                <span class="mono kpi-val">29</span>
+                <span class="kpi-lbl" data-i18n="tr_kpi1">Truy vấn 24h</span>
+              </div>
+              <div class="kpi">
+                <span class="mono kpi-val" id="trMatch">Allow Whitelist</span>
+                <span class="kpi-lbl" data-i18n="tr_kpi2">Rule khớp</span>
+              </div>
+            </div>
+            <div class="trouble-actions">
+              <button type="button" class="tr-btn active" id="trAllowBtn" data-i18n="tr_allow">ALLOW DOMAIN</button>
+              <button type="button" class="tr-btn" id="trBlockBtn" data-i18n="tr_block">KEEP BLOCKED</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Matrix -->
+    <section id="compare" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono section-kicker" data-i18n="cmp_kicker">03 / SO SÁNH</span>
+          <h2 data-i18n="cmp_title">DNS Gateway vs Extension trình duyệt vs VPN / Pi-hole</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table class="cmp-table">
+            <thead>
+              <tr>
+                <th data-i18n="cmp_col_feat">Tính năng</th>
+                <th class="col-highlight mono">BLOCK ADS (DOH)</th>
+                <th data-i18n="cmp_col_ext">Extension trình duyệt</th>
+                <th data-i18n="cmp_col_vpn">Local VPN / Pi-hole</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="cmp_r1">Chặn quảng cáo trong App (iOS / Android)</td>
+                <td class="col-highlight"><span class="mark-yes">✓</span></td>
+                <td><span class="mark-no">×</span></td>
+                <td><span class="mark-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmp_r2">Hoạt động trên cả Wi-Fi lẫn 4G/5G</td>
+                <td class="col-highlight"><span class="mark-yes">✓</span></td>
+                <td><span class="mark-yes">✓</span></td>
+                <td><span class="mark-mid">~</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmp_r3">0% hao pin nền, không cần cài thêm app</td>
+                <td class="col-highlight"><span class="mark-yes">✓</span></td>
+                <td><span class="mark-yes">✓</span></td>
+                <td><span class="mark-no">×</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmp_r4">Không cài Root CA, không giải mã HTTPS</td>
+                <td class="col-highlight"><span class="mark-yes">✓</span></td>
+                <td><span class="mark-yes">✓</span></td>
+                <td><span class="mark-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmp_r5">Ẩn quảng cáo nhúng cùng domain (YouTube App)</td>
+                <td class="col-highlight"><span class="mark-no">×</span></td>
+                <td><span class="mark-yes">✓</span></td>
+                <td><span class="mark-no">×</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -207,14 +338,33 @@
     <section id="setup" class="section">
       <div class="container">
         <div class="section-header">
-          <span class="mono section-kicker" data-i18n="setup_kicker">02 / HƯỚNG DẪN CÀI ĐẶT</span>
+          <span class="mono section-kicker" data-i18n="setup_kicker">04 / HƯỚNG DẪN CÀI ĐẶT</span>
           <h2 data-i18n="setup_title">Hoàn tất trong 3 bước</h2>
+        </div>
+
+        <div class="platform-strip">
+          <button type="button" class="plat-card" data-jump-tab="ios">
+            <span class="mono plat-scope" data-i18n="scope_sys">TOÀN HỆ THỐNG</span>
+            <strong>iPhone / iPad</strong>
+          </button>
+          <button type="button" class="plat-card" data-jump-tab="ios">
+            <span class="mono plat-scope" data-i18n="scope_sys">TOÀN HỆ THỐNG</span>
+            <strong>macOS</strong>
+          </button>
+          <button type="button" class="plat-card" data-jump-tab="apps">
+            <span class="mono plat-scope" data-i18n="scope_sys">TOÀN HỆ THỐNG</span>
+            <strong>Windows 11</strong>
+          </button>
+          <button type="button" class="plat-card" data-jump-tab="apps">
+            <span class="mono plat-scope" data-i18n="scope_browser">TRÌNH DUYỆT / APP</span>
+            <strong>Chrome · Shadowrocket</strong>
+          </button>
         </div>
 
         <div class="setup-box">
           <div class="segmented" role="tablist">
-            <button class="seg-btn active" data-tab="ios" role="tab">iPhone / iPad</button>
-            <button class="seg-btn" data-tab="apps" role="tab" data-i18n="tab_apps">Shadowrocket / Trình duyệt</button>
+            <button class="seg-btn active" data-tab="ios" role="tab">iPhone / iPad / macOS</button>
+            <button class="seg-btn" data-tab="apps" role="tab" data-i18n="tab_apps">Windows / Shadowrocket / Trình duyệt</button>
           </div>
 
           <div class="seg-panel active" id="tab-ios">
@@ -240,9 +390,9 @@
           <div class="seg-panel" id="tab-apps">
             <div class="step-grid step-grid-2">
               <div class="step-item">
-                <span class="mono step-idx">SHADOWROCKET / CLASH</span>
+                <span class="mono step-idx">WINDOWS 11 / SHADOWROCKET</span>
                 <h4 data-i18n="app1_title">Dán trực tiếp DoH URL</h4>
-                <p data-i18n-html="app1_desc">Mở phần cài đặt DNS trong ứng dụng và dán <code>https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code> để đồng bộ bộ lọc khi bật VPN.</p>
+                <p data-i18n-html="app1_desc">Trong cài đặt DNS của Windows 11 (Manual DoH template) hoặc Shadowrocket, dán <code>https://7a64n0vzr5.cloudflare-gateway.com/dns-query</code>.</p>
               </div>
               <div class="step-item">
                 <span class="mono step-idx">CHROME / EDGE / ANDROID</span>
@@ -259,7 +409,7 @@
     <section id="faq" class="section">
       <div class="container">
         <div class="section-header">
-          <span class="mono section-kicker" data-i18n="faq_kicker">03 / CÂU HỎI THƯỜNG GẶP</span>
+          <span class="mono section-kicker" data-i18n="faq_kicker">05 / CÂU HỎI THƯỜNG GẶP</span>
           <h2 data-i18n="faq_title">Thông tin kỹ thuật &amp; giới hạn</h2>
         </div>
 
