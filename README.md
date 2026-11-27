@@ -4,8 +4,6 @@
 
 **DNS mã hóa (DoH) giúp chặn quảng cáo, tracker & vượt chặn DNS đa nền tảng**
 
-[Tiếng Việt](README.md) · [English](README_EN.md)
-
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Gateway%20DoH-F38020?logo=cloudflare&logoColor=white)](https://one.dash.cloudflare.com/)
 [![HTML5](https://img.shields.io/badge/HTML5-CSS3%20%2F%20JS-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)](https://blockads.huyvu2512.io.vn/)

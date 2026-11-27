@@ -1,13 +1,13 @@
-# Security Policy
+# Chính sách bảo mật
 
-## Privacy & Trust Model
+## Mô hình bảo mật & Quyền riêng tư
 
-**Huyvu2512 Block Ads** is designed strictly as a DNS-layer filter (`DNS-over-HTTPS`):
+**Huyvu2512 Block Ads** được thiết kế thuần túy như một bộ lọc ở tầng DNS (**DNS-over-HTTPS**):
 
-- **No Root CA (`com.apple.security.root`):** The provided `.mobileconfig` profile (`profiles/huyvu2512.mobileconfig`) **never** installs any Root CA certificate.
-- **No MITM / HTTPS Interception:** Traffic payloads, credentials, banking sessions, and HTTPS headers remain end-to-end encrypted between your device and the destination server.
-- **DNS-Only Scope:** Only DNS hostname lookups are routed through Cloudflare Zero Trust Gateway (`com.apple.dnsSettings.managed`).
+- **Không cài Root CA (`com.apple.security.root`):** Hồ sơ cấu hình `.mobileconfig` (`profiles/huyvu2512.mobileconfig`) **tuyệt đối không** cài đặt bất kỳ chứng chỉ Root CA nào lên thiết bị.
+- **Không giải mã HTTPS (Không MITM):** Toàn bộ dữ liệu truy cập, thông tin đăng nhập, phiên ngân hàng và header HTTPS luôn được mã hóa đầu cuối trực tiếp giữa thiết bị của bạn và máy chủ đích.
+- **Phạm vi chỉ ở tầng DNS:** Chỉ các truy vấn phân giải tên miền được định tuyến qua Cloudflare Zero Trust Gateway (`com.apple.dnsSettings.managed`).
 
-## Reporting a Vulnerability
+## Báo cáo lỗ hổng hoặc chặn nhầm
 
-If you discover a security issue, misconfiguration, or false-positive domain in this repository, please open an issue on [GitHub Issues](https://github.com/huyvu2512/block-ads/issues) or reach out via [huyvu2512.io.vn](https://huyvu2512.io.vn/).
+Nếu bạn phát hiện vấn đề bảo mật, lỗi cấu hình hoặc tên miền bị chặn nhầm trong dự án này, vui lòng mở issue tại [GitHub Issues](https://github.com/huyvu2512/block-ads/issues) hoặc liên hệ qua [huyvu2512.io.vn](https://huyvu2512.io.vn/).
